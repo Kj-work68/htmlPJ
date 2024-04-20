@@ -21,7 +21,7 @@
     <section class="p-3">
         <div class="row">
             <div class="col-12">
-                <button class="btn btn-primary">New User <i class="bi bi-people"></i></button>
+                <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm">New User <i class="bi bi-people"></i></button>
             </div>
         </div>
         <div class="row">
@@ -54,6 +54,39 @@
                             <td>0854741236</td>
                             <td>officer</td>
                             <td>13/07/24</td>
+                            <td><button class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-primary"><i class="bi bi-pen"></i></button>
+                                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td><img src="./img/Gintoki icon.jpg" alt="" width="50" height="50"></td>
+                            <td>Gintoki</td>
+                            <td>26</td>
+                            <td>Ado</td>
+                            <td>Gintoki@gmail.com</td>
+                            <td>0854741236</td>
+                            <td>officer</td>
+                            <td>13/07/24</td>
+                            <td><button class="btn btn-success"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-primary"><i class="bi bi-pen"></i></button>
+                                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td><img src="./img/Gintoki icon.jpg" alt="" width="50" height="50"></td>
+                            <td>Gintoki</td>
+                            <td>26</td>
+                            <td>Ado</td>
+                            <td>Gintoki@gmail.com</td>
+                            <td>0854741236</td>
+                            <td>officer</td>
+                            <td>13/07/24</td>
                             <td><button class="btn btn-success"><i class="bi bi-eye"></i></button>
                                 <button class="btn btn-primary"><i class="bi bi-pen"></i></button>
                                 <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
@@ -69,7 +102,120 @@
    <!--Modal Form-->
    <div class="modal fade" id="userForm">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content"></div>
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Fill the Form</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close">
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="myForm">
+
+                    <div class="card imgholder">
+                        <label for="imgInput" class="upload">
+                            <input type="file" name="" id="imgInput">
+                            <i class="bi bi-plus-circle-dotted"></i>
+                        </label>
+                        <img src="./img/user.png" alt="" width="200" height="200" class="img">
+                    </div>
+
+                    <div class="inputField">
+                        <div>
+                            <label for="name">Name: </label>
+                            <input type="text" name="" id="name">
+                        </div>
+                        <div>
+                            <label for="age">Age: </label>
+                            <input type="number" name="" id="age">
+                        </div>
+                        <div>
+                            <label for="city">City: </label>
+                            <input type="text" name="" id="city">
+                        </div>
+                        <div>
+                            <label for="email">E-mail: </label>
+                            <input type="email" name="" id="email">
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number: </label>
+                            <input type="text" name="" id="phone" minlength="10" maxlength="10">
+                        </div>
+                        <div>
+                            <label for="post">Post: </label>
+                            <input type="text" name="" id="post">
+                        </div>
+                        <div>
+                            <label for="stdate">Start Date: </label>
+                            <input type="date" name="" id="stdate">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
+            </div>
+        </div>
+    </div>
+   </div>
+
+   <!--Read Data-->
+
+   <div class="modal fade" id="readData">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Profile</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close">
+
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="myForm">
+
+                    <div class="card imgholder">
+                        
+                        <img src="./img/user.png" alt="" width="200" height="200" class="img">
+                    </div>
+
+                    <div class="inputField">
+                        <div>
+                            <label for="name">Name: </label>
+                            <input type="text" name="" id="name" disabled>
+                        </div>
+                        <div>
+                            <label for="age">Age: </label>
+                            <input type="number" name="" id="age" disabled>
+                        </div>
+                        <div>
+                            <label for="city">City: </label>
+                            <input type="text" name="" id="city" disabled>
+                        </div>
+                        <div>
+                            <label for="email">E-mail: </label>
+                            <input type="email" name="" id="email" disabled>
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number: </label>
+                            <input type="text" name="" id="phone" minlength="10" maxlength="10">
+                        </div>
+                        <div>
+                            <label for="post">Post: </label>
+                            <input type="text" name="" id="post" disabled>
+                        </div>
+                        <div>
+                            <label for="stdate">Start Date: </label>
+                            <input type="date" name="" id="stdate" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+           
+        </div>
     </div>
    </div>
 
