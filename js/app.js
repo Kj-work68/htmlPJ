@@ -7,11 +7,11 @@
         email = document.getElementById("email"),
         phone = document.getElementById("phone"),
         post = document.getElementById("post"),
-        stdate = document.getElementById("stdate"),
+        stDate = document.getElementById("stDate"),
         submitBtn = document.querySelector(".submit"),
         userInfo = document.getElementById("data"), ///<tbody id="data">
-        model = document.getElementById("userForm"),
-        modelTitle = document.querySelector("#userForm .modal-title")
+        modal = document.getElementById("userForm"),
+        modalTitle = document.querySelector("#userForm .modal-title")
 
     let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
 
@@ -47,15 +47,18 @@
                 <td>${element.employeePhone}</td>
                 <td>${element.employeePost}</td>
                 <td>${element.startDate}</td>
-                <td>${index+1}</td>
+                
 
                 <td><button class="btn btn-success" onclick="readInfo('${element.picture}',
                 '${element.employeeName}','${element.employeeAge}','${element.employeeCity}',
                 '${element.employeeEmail}','${element.employeePhone}','${element.employeePost}','${element.startDate}')" data-bs-toggle="modal"
                 data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+
                 <button class="btn btn-primary" onclick="editInfo(${index},'${element.picture}',
                 '${element.employeeName}','${element.employeeAge}','${element.employeeCity}',
-                '${element.employeeEmail}','${element.employeePhone}','${element.employeePost}','${element.startDate}')"data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pen"></i></button>
+                '${element.employeeEmail}','${element.employeePhone}','${element.employeePost}','${element.startDate}')"data-bs-toggle="modal" data-bs-target="#userForm">
+                <i class="bi bi-pen"></i></button>
+
                 <button class="btn btn-danger" onclick="delateInfo(${index})"><i class="bi bi-trash"></i></button>
             </td>
             </tr>`
@@ -66,23 +69,21 @@
     }
     showInfo()
 
-    function readInfo(pic, name, age, city, email, phone, post, stdate){
+    function readInfo(pic, name, age, city, email, phone, post, stDate){
         document.querySelector('.showImg').src = pic,
         document.querySelector('#showName').value = name,
-        document.querySelector('#showAge').value = age,
-        document.querySelector('#showCity').value = city,
-        document.querySelector('#showEmail').value = email,
-        document.querySelector('#showPhone').value = phone,
-        document.querySelector('#showPost').value = post,
-        document.querySelector('#showstdate').value = stdate
-
-
+        document.querySelector("#showAge").value = age,
+        document.querySelector("#showCity").value = city,
+        document.querySelector("#showEmail").value = email,
+        document.querySelector("#showPhone").value = phone,
+        document.querySelector("#showPost").value = post,
+        document.querySelector("#showstDate").value = stDate
     }
 
     function delateInfo(index){
         if(confirm("Are you sure want to delate?")){
             getData.splice(index, 1)
-            localStorage.getItem("userProfile", JSON.stringify(getData))
+            localStorage.setItem("userProfile", JSON.stringify(getData))
             showInfo()
         }
         
@@ -120,7 +121,7 @@
         form.reset()
 
         imgInput.src = "./img/user.png"
-        model.style.display = "none"
-        document.querySelector(".model-backdrop").remove()
+        modal.style.display = "none"
+        document.querySelector(".modal-backdrop").remove()
 
     })
