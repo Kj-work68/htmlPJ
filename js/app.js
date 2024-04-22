@@ -12,11 +12,23 @@
         userInfo = document.getElementById("data"), ///<tbody id="data">
         modal = document.getElementById("userForm"),
         modalTitle = document.querySelector("#userForm .modal-title")
+        newUserBtn = document.querySelector(".newUser")
 
     let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
 
     let isEdit = false, editId
     showInfo()
+
+    newUserBtn.addEventListener('click', ()=>{
+        submitBtn.innerText = "Submit",
+        modalTitle.information = "Fill The Form"
+        isEdit = false
+        imgInput.src = "./img/user.png"
+        form.reset()
+    
+    })
+
+
 
     file.onchange = function(){
         if(file.files[0].size < 1000000){ // 1MB = 1000000
@@ -78,6 +90,22 @@
         document.querySelector("#showPhone").value = phone,
         document.querySelector("#showPost").value = post,
         document.querySelector("#showstDate").value = stDate
+    }
+
+    function editInfo(index,pic, name, Age, City, Email, Phone, Post, StDate){
+        isEdit = true
+        editId = index
+        imgInput.src = pic
+        userName.value =name
+        age.value = Age
+        city.value = City
+        email.value = Email,
+        phone.value = Phone,
+        post.value = Post, 
+        stdate.value = StDate  //ตัวแปรต้องสอดคล้องกับ Modal Form
+
+        submitBtn.innerText = "Update"
+        modalTitle.innerText = "update The Form"
     }
 
     function delateInfo(index){
